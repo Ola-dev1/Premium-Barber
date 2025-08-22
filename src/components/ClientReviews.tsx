@@ -1,5 +1,5 @@
 import { useState, useCallback, useEffect, useRef } from "react";
-import useEmblaCarousel, { EmblaCarouselType } from "embla-carousel-react";
+import useEmblaCarousel from "embla-carousel-react";
 import { Button } from "@/components/ui/button";
 import { ChevronLeft, ChevronRight, Pause, Play } from "lucide-react";
 import { GradientSection } from "@/components/ui/gradient-section";
@@ -117,7 +117,7 @@ export default function ClientReviews({
         emblaApi.scrollTo(index);
       }
     },
-    [emblaApi, stopAutoPlay],
+    [emblaApi, stopAutoPlay]
   );
 
   // Update selected index when slide changes
@@ -176,7 +176,7 @@ export default function ClientReviews({
 
   // Error handling for images
   const handleImageError = (
-    e: React.SyntheticEvent<HTMLImageElement, Event>,
+    e: React.SyntheticEvent<HTMLImageElement, Event>
   ) => {
     const target = e.target as HTMLImageElement;
     target.src = "https://via.placeholder.com/100?text=Error";

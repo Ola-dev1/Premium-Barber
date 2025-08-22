@@ -16,15 +16,16 @@ export default function Shop() {
 
   const handleAddToCart = useCallback(
     (product: (typeof products)[0]) => {
-      addItem(product);
-      // Analytics handled via data attributes
+      // ✅ Ensure quantity is included
+      addItem({ ...product, quantity: 1 });
+
       toast({
         title: "Added to cart",
         description: `${product.name} has been added to your cart.`,
         className: "bg-green-500 text-white border-none",
       });
     },
-    [addItem, toast],
+    [addItem, toast]
   );
 
   return (
